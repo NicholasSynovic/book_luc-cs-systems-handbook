@@ -1,6 +1,7 @@
-name: GitHub pages
+name: Build Website
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -9,36 +10,42 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
-
+      
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.83.1'
+          hugo-version: 'latest'
           extended: true
-
+          
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: '12.x'
+          node-version: '16'
+          cache: 'npm'
+          # The action defaults to search for the dependency file (package-lock.json,
+          # npm-shrinkwrap.json or yarn.lock) in the repository root, and uses its
+          # hash as a part of the cache key.
+          # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-data
+          cache-dependency-path: '**/package-lock.json'
 
+      - run: npm install
+      - run: hugo --minify
       - name: Build with Hugo and add npm modules
         run: |
-          sudo npm install
-          sudo npm install -g postcss-cli
-          sudo npm install -D postcss
-          sudo npm install postcss@latest autoprefixer@latest
-          hugo --minify
           echo systemshandbook.cs.luc.edu > ./public/CNAME
+
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+
+
+
 
 
