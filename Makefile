@@ -1,5 +1,7 @@
 build:
 	git --no-pager tag | tail -n 1 | xargs -I % poetry version %
+	git --no-pager tag | tail -n 1 >> docs/_version
+	sphinx-build -M html docs dist
 
 create-dev:
 	pre-commit install

@@ -46,6 +46,12 @@ repos:
     - id: bandit
       files: '\.py$'
 
+  - repo: https://github.com/dzhu/rstfmt
+    rev: v0.0.14
+    hooks:
+    - id: rstfmt
+      files: '\.rst$'
+
   - repo: https://github.com/executablebooks/mdformat
     rev: 0.7.22
     hooks:
