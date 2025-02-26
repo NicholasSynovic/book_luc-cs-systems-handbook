@@ -7,6 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "Loyola University Chicago CS Systems Handbook"
+html_title = "Loyola University Chicago CS Systems Handbook"
 copyright = "2025, Nicholas M. Synovic"
 author = "Nicholas M. Synovic"
 release = open("_version", "r").readline()
