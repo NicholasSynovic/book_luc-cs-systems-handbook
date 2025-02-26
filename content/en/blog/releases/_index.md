@@ -1,8 +1,3 @@
+______________________________________________________________________
 
----
-title: "New Releases"
-linkTitle: "Releases"
-weight: 20
----
-
-
+## title: "New Releases" linkTitle: "Releases" weight: 20

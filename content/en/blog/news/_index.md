@@ -1,8 +1,3 @@
+______________________________________________________________________
 
----
-title: "News About Docsy"
-linkTitle: "News"
-weight: 20
----
-
-
+## title: "News About Docsy" linkTitle: "News" weight: 20

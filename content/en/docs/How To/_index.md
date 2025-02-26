@@ -1,13 +1,5 @@
----
-title: "How To"
-linktitle: "How To"
-weight: 3
-description: >
-  How to use various systems in the department.
----
+______________________________________________________________________
 
-{{% pageinfo %}}
-Various how-to documents...
-{{% /pageinfo %}}
+## title: "How To" linktitle: "How To" weight: 3 description: > How to use various systems in the department.
 
-
+{{% pageinfo %}} Various how-to documents... {{% /pageinfo %}}
