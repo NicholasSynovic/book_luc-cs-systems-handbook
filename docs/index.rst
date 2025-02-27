@@ -34,5 +34,5 @@ students at Loyola University Chicago's Computer Science Department.
    its_services/printing.rst
    its_services/vpn.rst
    its_services/windows_desktop_support.rst
-   its_services/windows_lab.rst
+   its_services/windows_labs.rst
    its_services/wireless.rst
