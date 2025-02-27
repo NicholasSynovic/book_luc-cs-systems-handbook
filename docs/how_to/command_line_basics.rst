@@ -16,8 +16,9 @@ are identical with, or very similar to, older Unix commands. Since
 Apple's Mac OS X is also derived from a version of Unix (BSD Unix), many
 of these commands are the same as on a Mac.
 
-Essential Commands
-==================
+********************
+ Essential Commands
+********************
 
 Typically one interacts with a Unix/Linux system using a Command Line
 Interface (CLI), also known as a Terminal or a Shell. Unless one is
@@ -133,8 +134,9 @@ current process, and CTRL-D often serves as an End of File marker. All
 of the above merely scratches the surface; see external documentation
 for further particulars and advice.
 
-Why learn linux?
-================
+******************
+ Why learn linux?
+******************
 
 Because Unix and its offshoots remains one of the most important
 operating systems for servers, and many networking concepts are rooted
@@ -146,8 +148,9 @@ cool ideas here for the cognoscenti that just don't in the Windows world
 (or are unwieldy when transplanted there). Linux is open source
 software.
 
-Trying Linux
-============
+**************
+ Trying Linux
+**************
 
 For those who want to try it out on your personal laptop or desktop,
 find a decent Linux distribution such as Ubuntu, download and burn the
