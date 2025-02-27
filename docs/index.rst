@@ -26,3 +26,13 @@ students at Loyola University Chicago's Computer Science Department.
    how_to/getting_help.rst
    how_to/remote_access.rst
    how_to/secure_shell.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: ITS Services
+
+   its_services/printing.rst
+   its_services/vpn.rst
+   its_services/windows_desktop_support.rst
+   its_services/windows_lab.rst
+   its_services/wireless.rst
