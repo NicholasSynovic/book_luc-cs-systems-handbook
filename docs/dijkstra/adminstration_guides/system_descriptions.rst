@@ -72,8 +72,7 @@ nodes. The hostnames of GPU compute nodes are denoted as ``gpu*`` where
 
 These nodes are our primary AI training, testing, and inference nodes.
 While capable of executing CPU jobs on these nodes that is not their
-intention. Users should consider CPU nodes prior to GPU nodes for CPU
-job execution.
+intention.
 
 .. csv-table:: GPU Compute Node Hardware Datasheet
    :align: left
