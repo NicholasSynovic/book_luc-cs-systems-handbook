@@ -20,6 +20,12 @@ students at Loyola University Chicago's Computer Science Department.
 
 .. toctree::
    :maxdepth: 2
+   :caption: Dijkstra
+
+   dijkstra/system_administration.rst
+
+.. toctree::
+   :maxdepth: 2
    :caption: How To
 
    how_to/command_line_basics.rst
