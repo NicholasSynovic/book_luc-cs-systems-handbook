@@ -3,9 +3,9 @@ Motherboard Datasheet,https://www.supermicro.com/en/products/motherboard/x13deg-
 Number Of CPUs,2
 CPU Make and Model,Intel® Xeon® Gold 6448Y
 CPU Datasheet,https://www.intel.com/content/www/us/en/products/sku/232384/intel-xeon-gold-6448y-processor-60m-cache-2-10-ghz/specifications.html
-Number Of GPUs,TODO
-GPU Make and Model,TODO
-GPU Datasheet,TODO
+Number Of GPUs,4
+GPU Make and Model,NVIDIA L40S
+GPU Datasheet,https://www.nvidia.com/en-us/data-center/l40s/
 Total Memory,1024 GB
-RAM Make and Model,TODO
-RAM Datasheet,TODO
+RAM Make and Model, Sk Hynix HMCG94MEBRA112N
+RAM Datasheet,https://www.serversupply.com/MEMORY/PC5-38400/64GB/HYNIX/HMCG94MEBRA112N_347827.htm

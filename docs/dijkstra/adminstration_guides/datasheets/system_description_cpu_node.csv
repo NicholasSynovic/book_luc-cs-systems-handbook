@@ -3,9 +3,7 @@ Motherboard Datasheet,https://www.supermicro.com/en/products/motherboard/x11dpt-
 Number Of CPUs,2
 CPU Make and Model,Intel® Xeon® Silver 4110
 CPU Datasheet,https://www.intel.com/content/www/us/en/products/sku/123547/intel-xeon-silver-4110-processor-11m-cache-2-10-ghz/specifications.html
-Number Of GPUs,TODO
-GPU Make and Model,TODO
-GPU Datasheet,TODO
+Number Of GPUs,0
 Total Memory,192 GB
-RAM Make and Model,TODO
-RAM Datasheet,TODO
+RAM Make and Model,Samsung M393A2K43CB2-CTD
+RAM Datasheet,https://semiconductor.samsung.com/dram/module/rdimm/m393a2k43cb2-ctd/

@@ -3,9 +3,7 @@ Motherboard Datasheet,https://www.supermicro.com/en/products/motherboard/X11DPi-
 Number Of CPUs,2
 CPU Make and Model,Intel® Xeon ® Gold 6448Y
 CPU Datasheet,https://www.intel.com/content/www/us/en/products/sku/232384/intel-xeon-gold-6448y-processor-60m-cache-2-10-ghz/specifications.html
-Number Of GPUs,TODO
-GPU Make and Model,TODO
-GPU Datasheet,TODO
-Total Memory,1024 GB
-RAM Make and Model,TODO
-RAM Datasheet,TODO
+Number Of GPUs,0
+Total Memory,192 GB
+RAM Make and Model,Samsung M393A2K40CB2-CTD
+RAM Datasheet,https://semiconductor.samsung.com/dram/module/rdimm/m393a2k40cb2-ctd/
