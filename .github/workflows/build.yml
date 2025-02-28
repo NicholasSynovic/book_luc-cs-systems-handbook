@@ -34,7 +34,7 @@ jobs:
           make build
 
       - name: Release the project
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: ./dist/html
+          publish_dir: ./dist/html
