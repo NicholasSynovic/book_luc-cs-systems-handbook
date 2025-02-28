@@ -7,13 +7,8 @@ on:
       - '*'
 
 permissions:
-  contents: write
   pages: write
   id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   build:
@@ -38,17 +33,19 @@ jobs:
           source env/bin/activate
           make build
 
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist/html
+
   deploy:
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          keep_files: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/html
+        uses: actions/deploy-pages@v4
