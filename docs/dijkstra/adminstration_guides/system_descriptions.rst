@@ -97,23 +97,20 @@ bill of materials which is provided on a seperate page.
 Login Node Software
 ===================
 
--  OS
--  Kernel
--  CPU driver
--  GPU driver
+.. csv-table:: Login Node System Software Datasheet
+   :align: left
+   :file: ./datasheets/system_software_description_login_node.csv
 
 CPU Compute Node Software
 =========================
 
--  OS
--  Kernel
--  CPU driver
--  GPU driver
+.. csv-table:: CPU Compute Node System Software Datasheet
+   :align: left
+   :file: ./datasheets/system_software_description_cpu_node.csv
 
 GPU Compute Node Software
 =========================
 
--  OS
--  Kernel
--  CPU driver
--  GPU driver
+.. csv-table:: GPU Compute Node System Software Datasheet
+   :align: left
+   :file: ./datasheets/system_software_description_gpu_node.csv

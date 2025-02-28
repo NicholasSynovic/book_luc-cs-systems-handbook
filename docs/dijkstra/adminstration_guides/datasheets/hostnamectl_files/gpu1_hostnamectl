@@ -1,0 +1,10 @@
+ Static hostname: gpu1
+       Icon name: computer-server
+         Chassis: server
+      Machine ID: 47fb9879d04d44ccb03649e1b8e8c4e7
+         Boot ID: d51f72eebd9444248d666bd194999258
+Operating System: Ubuntu 22.04.5 LTS
+          Kernel: Linux 5.15.0-130-generic
+    Architecture: x86-64
+ Hardware Vendor: Supermicro
+  Hardware Model: SYS-421GE-TNRT

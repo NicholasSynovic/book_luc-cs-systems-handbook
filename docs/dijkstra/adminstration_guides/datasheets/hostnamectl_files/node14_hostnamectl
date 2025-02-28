@@ -1,0 +1,8 @@
+ Static hostname: node14
+       Icon name: computer-server
+         Chassis: server
+      Machine ID: 59820e7268834c3fa9a2906652b9c5d9
+         Boot ID: 5bf85e4d57c7488c8ad4aab68e909457
+Operating System: Ubuntu 22.04.5 LTS
+          Kernel: Linux 5.15.0-125-generic
+    Architecture: x86-64

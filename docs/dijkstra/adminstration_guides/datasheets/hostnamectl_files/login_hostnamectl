@@ -1,0 +1,10 @@
+ Static hostname: login
+       Icon name: computer-server
+         Chassis: server
+      Machine ID: 4f1092aa9ced4fa4943932a96f72831a
+         Boot ID: 9b776e07459444a0830ebb463652d33f
+Operating System: Ubuntu 22.04.5 LTS
+          Kernel: Linux 5.15.0-130-generic
+    Architecture: x86-64
+ Hardware Vendor: Supermicro
+  Hardware Model: SYS-6029P-TRT

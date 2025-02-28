@@ -1,0 +1,10 @@
+ Static hostname: node8
+       Icon name: computer-server
+         Chassis: server
+      Machine ID: 20db547a9ccc4eee93dda096ef90ca04
+         Boot ID: 72537d0c006d4d46a838d144d6cc4c22
+Operating System: Ubuntu 22.04.5 LTS
+          Kernel: Linux 5.15.0-133-generic
+    Architecture: x86-64
+ Hardware Vendor: Supermicro
+  Hardware Model: SYS-6029TP-HTR

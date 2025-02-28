@@ -1,0 +1,8 @@
+ Static hostname: node3
+       Icon name: computer-server
+         Chassis: server
+      Machine ID: 5fce8ffb765c468cb9f595aa4f6cf531
+         Boot ID: 6f6e5fe2ccf44f28a6a1b09dc6a7b694
+Operating System: Ubuntu 22.04.5 LTS
+          Kernel: Linux 5.15.0-125-generic
+    Architecture: x86-64

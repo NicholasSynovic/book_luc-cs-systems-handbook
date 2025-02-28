@@ -1,0 +1,8 @@
+ Static hostname: node7
+       Icon name: computer-server
+         Chassis: server
+      Machine ID: 22e8453c57784ff79df58b7eafc0d014
+         Boot ID: 3a68598649f343ee9baf87ed479b483b
+Operating System: Ubuntu 22.04.5 LTS
+          Kernel: Linux 5.15.0-125-generic
+    Architecture: x86-64

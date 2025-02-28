@@ -1,0 +1,10 @@
+ Static hostname: gpu2
+       Icon name: computer-server
+         Chassis: server
+      Machine ID: 90f6b8b99694489ab690934486540ee8
+         Boot ID: 078edf65a7c64247a4b0afff1486b6b3
+Operating System: Ubuntu 22.04.5 LTS
+          Kernel: Linux 5.15.0-130-generic
+    Architecture: x86-64
+ Hardware Vendor: Supermicro
+  Hardware Model: SYS-421GE-TNRT
