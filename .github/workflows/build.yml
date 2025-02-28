@@ -28,13 +28,12 @@ jobs:
 
       - name: Build the project
         run: |
-          pip install pre-commit
-          make create-dev
-          source env/bin/activate
+          pip install poetry
+          poetry install
           make build
 
       - name: Release the project
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/html
+          publish_dir: dist/html
