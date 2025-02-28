@@ -1,7 +1,11 @@
-Number Of CPUs,TODO
+Motherboard Make and Model, SuperMicro X11DPT-PS
+Motherboard Datasheet,https://www.supermicro.com/en/products/motherboard/x11dpt-ps
+Number Of CPUs,2
+CPU Make and Model,Intel® Xeon® Silver 4110
+CPU Datasheet,https://www.intel.com/content/www/us/en/products/sku/123547/intel-xeon-silver-4110-processor-11m-cache-2-10-ghz/specifications.html
 Number Of GPUs,TODO
-CPU Make and Model,TODO
 GPU Make and Model,TODO
-CPU Datasheet,TODO
 GPU Datasheet,TODO
-I/O Information,TODO
+Total Memory,192 GB
+RAM Make and Model,TODO
+RAM Datasheet,TODO

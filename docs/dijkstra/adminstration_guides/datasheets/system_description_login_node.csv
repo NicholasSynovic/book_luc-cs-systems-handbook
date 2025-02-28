@@ -1,7 +1,11 @@
-Number Of CPUs,TODO
+Motherboard Make and Model,SuperMicro X11DPI-NT
+Motherboard Datasheet,https://www.supermicro.com/en/products/motherboard/X11DPi-NT
+Number Of CPUs,2
+CPU Make and Model,Intel® Xeon ® Gold 6448Y
+CPU Datasheet,https://www.intel.com/content/www/us/en/products/sku/232384/intel-xeon-gold-6448y-processor-60m-cache-2-10-ghz/specifications.html
 Number Of GPUs,TODO
-CPU Make and Model,TODO
 GPU Make and Model,TODO
-CPU Datasheet,TODO
 GPU Datasheet,TODO
-I/O Information,TODO
+Total Memory,1024 GB
+RAM Make and Model,TODO
+RAM Datasheet,TODO

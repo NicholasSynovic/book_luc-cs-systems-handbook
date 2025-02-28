@@ -45,6 +45,10 @@ While this machine is capable of executing software, it is primarily
 intended as the point of access to the CPU and GPU nodes. The hostname
 of this device is ``login``.
 
+The login node is a SuperMicro SuperServer 6029P-TRT 2U server. The
+datasheet from the vendor can be accessed at this url:
+https://www.supermicro.com/products/system/2U/6029/SYS-6029P-TRT.cfm
+
 .. csv-table:: Login Node Hardware Datasheet
    :align: left
    :file: ./datasheets/system_description_login_node.csv
@@ -58,6 +62,10 @@ nodes. The hostnames of CPU compute nodes are denoted as ``node*`` where
 
 These nodes are our primary compute nodes and nearly all jobs should be
 designed around these nodes.
+
+The CPU compute nodes are SuperMicro SuperServer SYS-6029TP-HTR 2U
+servers. The datasheet from the vendor can be accessed at this url:
+https://www.supermicro.com/en/products/system/2u/6029/sys-6029tp-htr.cfm
 
 .. csv-table:: CPU Compute Node Hardware Datasheet
    :align: left
