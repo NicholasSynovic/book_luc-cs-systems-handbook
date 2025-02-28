@@ -20,10 +20,10 @@ jobs:
             show-progress: true
             lfs: false
 
-      - name: Setup Python 3.10 x64
+      - name: Setup Python 3.13 x64
         uses: actions/setup-python@v5
         with:
-            python-version: '3.10'
+            python-version: '3.13'
             architecture: 'x64'
 
       - name: Build the project
@@ -32,9 +32,9 @@ jobs:
           make create-dev
           source env/bin/activate
           make build
-          make package
 
       - name: Release the project
-        uses: softprops/action-gh-release@v2
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          files: ./dist/src
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          files: ./dist/html
