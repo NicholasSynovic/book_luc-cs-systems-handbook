@@ -7,7 +7,7 @@ on:
       - '*'
 
 permissions:
-  pages: write
+  contents: write
   id-token: write
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
             show-progress: true
             lfs: false
 
-      - name: Setup Python 3.13 x64
+      - name: Setup Python 3.10 x64
         uses: actions/setup-python@v5
         with:
             python-version: '3.13'
@@ -31,11 +31,5 @@ jobs:
           pip install pre-commit
           make create-dev
           source env/bin/activate
-          make build
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          make build-html
+          make deploy-gh

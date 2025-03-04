@@ -1,7 +1,7 @@
-build:
-	git --no-pager tag | rev | col | cut -d ' ' -f 1 | rev | xargs -I % poetry version %
-	git --no-pager tag | rev | col | cut -d ' ' -f 1 | rev > docs/_version
-	sphinx-build -M html docs dist --write-all
+build-html:
+	git describe --abbrev=0 --tags | xargs -I % poetry version %
+	poetry version --short > src/_version
+	sphinx-build --write-all docs html
 
 create-dev:
 	pre-commit install
@@ -14,3 +14,6 @@ create-dev:
 		poetry install; \
 		deactivate; \
 	)
+
+deploy-gh:
+	ghp-import --no-jekyll --push --force --remote origin --branch gh-pages html
