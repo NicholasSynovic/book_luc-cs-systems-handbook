@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Description &mdash; Loyola University Chicago CS Systems Handbook</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8618f531"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Command Line Basics" href="../../how_to/command_line_basics.html" />
+    <link rel="prev" title="System Administration" href="../system_administration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Loyola University Chicago CS Systems Handbook
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Department Services</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../department_services/content_management.html">Content Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../department_services/facilities.html">Facilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../department_services/people.html">People</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../department_services/user_accounts.html">User Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../department_services/virtualization.html">Virtualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../department_services/academic_alliances.html">Academic Alliances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../department_services/durian_gpgpu_server.html">Durian GPGPU Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../department_services/google_apps.html">Google Apps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Dijkstra</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../system_administration.html">System Administration</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">System Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-description">Hardware Description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#login-node-hardware">Login Node Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cpu-compute-node-hardware">CPU Compute Node Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu-compute-node-hardware">GPU Compute Node Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#system-software-description">System Software Description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#login-node-software">Login Node Software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cpu-compute-node-software">CPU Compute Node Software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu-compute-node-software">GPU Compute Node Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How To</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/command_line_basics.html">Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/getting_help.html">Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/remote_access.html">Remote Access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/secure_shell.html">Secure Shell</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ITS Services</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../its_services/printing.html">Printing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../its_services/vpn.html">Virtual Private Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../its_services/windows_desktop_support.html">Windows Desktop Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../its_services/windows_labs.html">Windows Labs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../its_services/wireless.html">Wireless</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Loyola University Chicago CS Systems Handbook</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../system_administration.html">System Administration</a></li>
+      <li class="breadcrumb-item active">System Description</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/dijkstra/adminstration_guides/system_descriptions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="system-description">
+<h1>System Description<a class="headerlink" href="#system-description" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The hardware and software system descriptions of Dijkstra are
+evolving. This list is accurate as of Feburary 26, 2025.</p>
+</div>
+<p>Dijkstra is the Loyola University Chicago (LUC) Computer Science
+departments primary education and research cluster computer. It is
+inately a <em>heterogenous</em> system with a mixture of systems from various
+vendors.</p>
+<p>Dijkstra is designed to provide both students and faculty a world class
+educational tool; allowing users to learn how to program for a
+high-performance computing environment, scale applications across many
+devices, GPU programing, parallel programming, and Unix environement
+navigation and management among others. For research faculty, Dijkstra
+enables research scientists to leverage high core count CPUs and GPUs
+for data analysis, testing, experimentation, and visualization.</p>
+<p>Dijkstra is an ongoing research project. As such, the features and
+capabilities of Dijkstra may fluctuate over time. This page is an
+attempt at keeping an up to date record of the hardware and system
+software of Dijkstra nodes.</p>
+<section id="hardware-description">
+<h2>Hardware Description<a class="headerlink" href="#hardware-description" title="Link to this heading"></a></h2>
+<p>The following hardware description defines the Dijkstra cluster <em>as a
+whole</em>. Individual node descriptions are provided in relevant
+subsections.</p>
+<table class="docutils align-left" id="id1">
+<caption><span class="caption-text">Dijkstra Cluster Hardware Datasheet</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p>Number of Nodes</p></td>
+<td><p>17</p></td>
+</tr>
+<tr class="row-even"><td><p>Number Of Login Nodes</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number Of CPU Nodes</p></td>
+<td><p>14</p></td>
+</tr>
+<tr class="row-even"><td><p>Number Of GPU Nodes</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total Shared Storage</p></td>
+<td><p>30 TB</p></td>
+</tr>
+<tr class="row-even"><td><p>Number Of CPUs</p></td>
+<td><p>34</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number Of GPUs</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The 30 TB shared storage is an NFS mount that contains the home
+directory of all users. Each node has its own local storage which
+contains the system application (e.g., OS, kernel, etc) specific to
+that node.</p>
+</div>
+<section id="login-node-hardware">
+<h3>Login Node Hardware<a class="headerlink" href="#login-node-hardware" title="Link to this heading"></a></h3>
+<p>This datasheet describes the hardware availible on the <em>login</em> node.
+While this machine is capable of executing software, it is primarily
+intended as the point of access to the CPU and GPU nodes. The hostname
+of this device is <code class="docutils literal notranslate"><span class="pre">login</span></code>.</p>
+<p>The login node is a SuperMicro SuperServer 6029P-TRT 2U server. The
+datasheet from the vendor can be accessed at this url:
+<a class="reference external" href="https://www.supermicro.com/products/system/2U/6029/SYS-6029P-TRT.cfm">https://www.supermicro.com/products/system/2U/6029/SYS-6029P-TRT.cfm</a></p>
+<table class="docutils align-left" id="id2">
+<caption><span class="caption-text">Login Node Hardware Datasheet</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p>Motherboard Make and Model</p></td>
+<td><p>SuperMicro X11DPI-NT</p></td>
+</tr>
+<tr class="row-even"><td><p>Motherboard Datasheet</p></td>
+<td><p><a class="reference external" href="https://www.supermicro.com/en/products/motherboard/X11DPi-NT">https://www.supermicro.com/en/products/motherboard/X11DPi-NT</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Number Of CPUs</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>CPU Make and Model</p></td>
+<td><p>Intel® Xeon ® Gold 6448Y</p></td>
+</tr>
+<tr class="row-odd"><td><p>CPU Datasheet</p></td>
+<td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/products/sku/232384/intel-xeon-gold-6448y-processor-60m-cache-2-10-ghz/specifications.html">https://www.intel.com/content/www/us/en/products/sku/232384/intel-xeon-gold-6448y-processor-60m-cache-2-10-ghz/specifications.html</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Number Of GPUs</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total Local Storage</p></td>
+<td><p>240 GB</p></td>
+</tr>
+<tr class="row-even"><td><p>Number of Storage Devices</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage Device Datasheet</p></td>
+<td><p><a class="reference external" href="https://www.mouser.com/datasheet/2/1471/dc_d3_s4510_s4610_series_brief-3131895.pdf">https://www.mouser.com/datasheet/2/1471/dc_d3_s4510_s4610_series_brief-3131895.pdf</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Total Memory</p></td>
+<td><p>192 GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>RAM Make and Model</p></td>
+<td><p>Samsung M393A2K40CB2-CTD</p></td>
+</tr>
+<tr class="row-even"><td><p>RAM Datasheet</p></td>
+<td><p><a class="reference external" href="https://semiconductor.samsung.com/dram/module/rdimm/m393a2k40cb2-ctd/">https://semiconductor.samsung.com/dram/module/rdimm/m393a2k40cb2-ctd/</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cpu-compute-node-hardware">
+<h3>CPU Compute Node Hardware<a class="headerlink" href="#cpu-compute-node-hardware" title="Link to this heading"></a></h3>
+<p>This datasheet describes the hardware availible on the <em>CPU</em> compute
+nodes. The hostnames of CPU compute nodes are denoted as <code class="docutils literal notranslate"><span class="pre">node*</span></code> where
+<code class="docutils literal notranslate"><span class="pre">*</span></code> is a value two (2) through fifteen (15) inclusive.</p>
+<p>These nodes are our primary compute nodes and nearly all jobs should be
+designed around these nodes.</p>
+<p>The CPU compute nodes are SuperMicro SuperServer SYS-6029TP-HTR 2U
+servers. The datasheet from the vendor can be accessed at this url:
+<a class="reference external" href="https://www.supermicro.com/en/products/system/2u/6029/sys-6029tp-htr.cfm">https://www.supermicro.com/en/products/system/2u/6029/sys-6029tp-htr.cfm</a></p>
+<table class="docutils align-left" id="id3">
+<caption><span class="caption-text">CPU Compute Node Hardware Datasheet</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p>Motherboard Make and Model</p></td>
+<td><p>SuperMicro X11DPT-PS</p></td>
+</tr>
+<tr class="row-even"><td><p>Motherboard Datasheet</p></td>
+<td><p><a class="reference external" href="https://www.supermicro.com/en/products/motherboard/x11dpt-ps">https://www.supermicro.com/en/products/motherboard/x11dpt-ps</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Number Of CPUs</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>CPU Make and Model</p></td>
+<td><p>Intel® Xeon® Silver 4110</p></td>
+</tr>
+<tr class="row-odd"><td><p>CPU Datasheet</p></td>
+<td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/products/sku/123547/intel-xeon-silver-4110-processor-11m-cache-2-10-ghz/specifications.html">https://www.intel.com/content/www/us/en/products/sku/123547/intel-xeon-silver-4110-processor-11m-cache-2-10-ghz/specifications.html</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Number Of GPUs</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total Local Storage</p></td>
+<td><p>240 GB</p></td>
+</tr>
+<tr class="row-even"><td><p>Number of Storage Devices</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage Device Datasheet</p></td>
+<td><p><a class="reference external" href="https://www.mouser.com/datasheet/2/1471/dc_d3_s4510_s4610_series_brief-3131895.pdf">https://www.mouser.com/datasheet/2/1471/dc_d3_s4510_s4610_series_brief-3131895.pdf</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Total Memory</p></td>
+<td><p>192 GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>RAM Make and Model</p></td>
+<td><p>Samsung M393A2K43CB2-CTD</p></td>
+</tr>
+<tr class="row-even"><td><p>RAM Datasheet</p></td>
+<td><p><a class="reference external" href="https://semiconductor.samsung.com/dram/module/rdimm/m393a2k43cb2-ctd/">https://semiconductor.samsung.com/dram/module/rdimm/m393a2k43cb2-ctd/</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gpu-compute-node-hardware">
+<h3>GPU Compute Node Hardware<a class="headerlink" href="#gpu-compute-node-hardware" title="Link to this heading"></a></h3>
+<p>This datasheet describes the hardware availible on the <em>GPU</em> compute
+nodes. The hostnames of GPU compute nodes are denoted as <code class="docutils literal notranslate"><span class="pre">gpu*</span></code> where
+<code class="docutils literal notranslate"><span class="pre">*</span></code> is a value one (1) through two (2) inclusive.</p>
+<p>These nodes are our primary AI training, testing, and inference nodes.
+While capable of executing CPU jobs on these nodes that is not their
+intention.</p>
+<table class="docutils align-left" id="id4">
+<caption><span class="caption-text">GPU Compute Node Hardware Datasheet</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p>Motherboard Make and Model</p></td>
+<td><p>SuperMicro X13DEG-OA</p></td>
+</tr>
+<tr class="row-even"><td><p>Motherboard Datasheet</p></td>
+<td><p><a class="reference external" href="https://www.supermicro.com/en/products/motherboard/x13deg-oa">https://www.supermicro.com/en/products/motherboard/x13deg-oa</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Number Of CPUs</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>CPU Make and Model</p></td>
+<td><p>Intel® Xeon® Gold 6448Y</p></td>
+</tr>
+<tr class="row-odd"><td><p>CPU Datasheet</p></td>
+<td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/products/sku/232384/intel-xeon-gold-6448y-processor-60m-cache-2-10-ghz/specifications.html">https://www.intel.com/content/www/us/en/products/sku/232384/intel-xeon-gold-6448y-processor-60m-cache-2-10-ghz/specifications.html</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Number Of GPUs</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPU Make and Model</p></td>
+<td><p>NVIDIA L40S</p></td>
+</tr>
+<tr class="row-even"><td><p>GPU Datasheet</p></td>
+<td><p><a class="reference external" href="https://www.nvidia.com/en-us/data-center/l40s/">https://www.nvidia.com/en-us/data-center/l40s/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Total Local Storage</p></td>
+<td><p>13.44 TB</p></td>
+</tr>
+<tr class="row-even"><td><p>Number of Storage Devices</p></td>
+<td><p>4 (1 x 1.92 TB | 3 x 3.84 TB in RAID 0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage Device Datasheets</p></td>
+<td><p><a class="reference external" href="https://download.semiconductor.samsung.com/resources/data-sheet/Samsung_SSD_PM9A3_Data_Sheet_Rev1.0.pdf">https://download.semiconductor.samsung.com/resources/data-sheet/Samsung_SSD_PM9A3_Data_Sheet_Rev1.0.pdf</a> | <a class="reference external" href="https://semiconductor.samsung.com/ssd/datacenter-ssd/pm9a3/mzql23t8hcls-00a07/">https://semiconductor.samsung.com/ssd/datacenter-ssd/pm9a3/mzql23t8hcls-00a07/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Total Memory</p></td>
+<td><p>1024 GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>RAM Make and Model</p></td>
+<td><p>Sk Hynix HMCG94MEBRA112N</p></td>
+</tr>
+<tr class="row-even"><td><p>RAM Datasheet</p></td>
+<td><p><a class="reference external" href="https://www.serversupply.com/MEMORY/PC5-38400/64GB/HYNIX/HMCG94MEBRA112N_347827.htm">https://www.serversupply.com/MEMORY/PC5-38400/64GB/HYNIX/HMCG94MEBRA112N_347827.htm</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="system-software-description">
+<h2>System Software Description<a class="headerlink" href="#system-software-description" title="Link to this heading"></a></h2>
+<p><em>System software</em> refers to any software package that is handled by
+system administration faculty and staff. This is not a complete software
+bill of materials which is provided on a seperate page.</p>
+<section id="login-node-software">
+<h3>Login Node Software<a class="headerlink" href="#login-node-software" title="Link to this heading"></a></h3>
+<table class="docutils align-left" id="id5">
+<caption><span class="caption-text">Login Node System Software Datasheet</span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p>Operating System</p></td>
+<td><p>Ubuntu 22.04.5 LTS</p></td>
+</tr>
+<tr class="row-even"><td><p>Kernel Revision</p></td>
+<td><p>Linux 5.15.0-130-generic</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cpu-compute-node-software">
+<h3>CPU Compute Node Software<a class="headerlink" href="#cpu-compute-node-software" title="Link to this heading"></a></h3>
+<table class="docutils align-left" id="id6">
+<caption><span class="caption-text">CPU Compute Node System Software Datasheet</span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p>Operating System</p></td>
+<td><p>Ubuntu 22.04.5 LTS</p></td>
+</tr>
+<tr class="row-even"><td><p>Kernel Revision</p></td>
+<td><p>Linux 5.15.0-125-generic</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gpu-compute-node-software">
+<h3>GPU Compute Node Software<a class="headerlink" href="#gpu-compute-node-software" title="Link to this heading"></a></h3>
+<table class="docutils align-left" id="id7">
+<caption><span class="caption-text">GPU Compute Node System Software Datasheet</span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p>Operating System</p></td>
+<td><p>Ubuntu 22.04.5 LTS</p></td>
+</tr>
+<tr class="row-even"><td><p>Kernel Revision</p></td>
+<td><p>Linux 5.15.0-130-generic</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../system_administration.html" class="btn btn-neutral float-left" title="System Administration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../how_to/command_line_basics.html" class="btn btn-neutral float-right" title="Command Line Basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Nicholas M. Synovic.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

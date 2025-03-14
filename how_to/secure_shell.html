@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Shell &mdash; Loyola University Chicago CS Systems Handbook</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8618f531"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Printing" href="../its_services/printing.html" />
+    <link rel="prev" title="Remote Access" href="remote_access.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Loyola University Chicago CS Systems Handbook
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Department Services</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../department_services/content_management.html">Content Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../department_services/facilities.html">Facilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../department_services/people.html">People</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../department_services/user_accounts.html">User Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../department_services/virtualization.html">Virtualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../department_services/academic_alliances.html">Academic Alliances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../department_services/durian_gpgpu_server.html">Durian GPGPU Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../department_services/google_apps.html">Google Apps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Dijkstra</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dijkstra/system_administration.html">System Administration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How To</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="command_line_basics.html">Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_access.html">Remote Access</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Secure Shell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-ssh-in-general">Configuring SSH in General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bitvise-tunnelier">Bitvise Tunnelier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#openssh-on-linux-mac-os-x-or-cygwin">OpenSSH on Linux, Mac OS X, or Cygwin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#putty">PuTTY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssh-communications">SSH Communications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cygwin-ssh-installation">Cygwin SSH Installation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ITS Services</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../its_services/printing.html">Printing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../its_services/vpn.html">Virtual Private Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../its_services/windows_desktop_support.html">Windows Desktop Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../its_services/windows_labs.html">Windows Labs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../its_services/wireless.html">Wireless</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Loyola University Chicago CS Systems Handbook</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Secure Shell</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/how_to/secure_shell.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="secure-shell">
+<h1>Secure Shell<a class="headerlink" href="#secure-shell" title="Link to this heading"></a></h1>
+<p>Getting started with SSH/Secure Shell at Loyola.</p>
+<p>Not all computer systems in the department are intended for general use,
+and some are restricted to faculty and staff usage. (And many are
+reserved for testing purposes.) The systems available for general use
+include random.cs.luc.edu and infinity.cs.luc.edu.</p>
+<p>By default, SSH traffic (on port 22) is blocked outside of Loyola. You
+will need to use the VPN or the public key authentication to connect to
+our servers on an alternate port (22222).</p>
+<p>For most of our user community, we think the VPN is a reasonable
+solution. If you don’t have access, please let us know. We can get VPN
+access for alumni and collaborators.</p>
+<section id="configuring-ssh-in-general">
+<h2>Configuring SSH in General<a class="headerlink" href="#configuring-ssh-in-general" title="Link to this heading"></a></h2>
+<p>To use public key authentication (PKA), you need to make a configuration
+after you install a ssh client, which includes three steps:</p>
+<ol class="arabic simple">
+<li><p>generate a private and public key pair (Key Type: RSA Key Length:
+1024);</p></li>
+<li><p>store private key in your local computer;</p></li>
+<li><p>save public key on the remote Linux server.</p></li>
+</ol>
+<p>In the remaining sections, we discuss different configurations that are
+commonly needed by faculty, staff, and students within our department.</p>
+</section>
+<section id="bitvise-tunnelier">
+<h2>Bitvise Tunnelier<a class="headerlink" href="#bitvise-tunnelier" title="Link to this heading"></a></h2>
+<p>Two Quick Steps to Configure SSH Keys Authentication With bitvise SSH
+client</p>
+<ol class="arabic">
+<li><p>Download ssh client software from
+<a class="reference external" href="http://www.bitvise.com/download-area">http://www.bitvise.com/download-area</a></p></li>
+<li><p>Generate a private and public key pair:</p>
+<ul class="simple">
+<li><p>click the link titled ‘User keypair manager’ in the Login tab.</p></li>
+<li><p>click the button [Generate New …]</p></li>
+<li><p>choose ssh-rsa and 1024bits</p></li>
+<li><p>you can enter passphrase or leave it empty</p></li>
+<li><p>click the button [Generate]</p></li>
+</ul>
+<p>This passphrase is not sent to the remote host, and it is only used
+to protect your private key. Otherwise, anyone who has access to your
+private key can authenticate to your account automatically.</p>
+</li>
+<li><p>Export Public key to the Linux server User keypair manager.</p>
+<ul>
+<li><p>click the keypair in the slots</p></li>
+<li><p>click the button [Export..]</p></li>
+<li><p>chose “Export public key” and “OpenSSH format”</p></li>
+<li><p>click the button [Export]</p></li>
+<li><p>It should be something like:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-rsa<span class="w"> </span>AAAAB3NzaC1yc2EAAAABJQAAAIEAo8q0r4d599buYHCbc36ViJniRuLvUr++asdSUh
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>You need to append that line to <code class="docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code> on the
+Linux server.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="openssh-on-linux-mac-os-x-or-cygwin">
+<h2>OpenSSH on Linux, Mac OS X, or Cygwin<a class="headerlink" href="#openssh-on-linux-mac-os-x-or-cygwin" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Generate a private and public key pair</p></li>
+<li><p>Save Public key on the Linux server</p>
+<p>You need to append that line to <code class="docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code> on the
+Linux server</p>
+</li>
+<li><p>connect to the Linux server:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-p<span class="w"> </span>port-num<span class="w">  </span>xyz@server.cs.luc.edu
+</pre></div>
+</div>
+<p>where xyz is your username on our Linux system. The port-num and
+server name have been sent to your Loyola mailbox with your username
+and password.</p>
+</li>
+</ol>
+</section>
+<section id="putty">
+<h2>PuTTY<a class="headerlink" href="#putty" title="Link to this heading"></a></h2>
+<p>Five Quick Steps to Configure SSH Keys Authentication With PuTTY</p>
+<ol class="arabic">
+<li><p>Download ssh client software:</p>
+<ul class="simple">
+<li><p>Get the zip file with all PuTTY binaries
+<a class="reference external" href="http://the.earth.li/~sgtatham/putty/latest/x86/putty.zip">http://the.earth.li/~sgtatham/putty/latest/x86/putty.zip</a></p></li>
+</ul>
+</li>
+<li><p>Generate a private and public key pair</p>
+<ul class="simple">
+<li><p>Double click PuTTYgen.exe, press [Generate] button, keep moving
+mouse. Once the keys are generated, enter a passphrase for your
+private key, or leave the boxes empty if you do not want to
+protect your private key with a passphrase.</p></li>
+<li><p>This passphrase is not sent to the remote host, and it is only
+used to protect your private key. Otherwise, anyone who has access
+to your private key can authenticate to your account
+automatically.</p></li>
+<li><p>Click [Save Private key] button to save it in a file, say,
+C:ppp.ppk</p></li>
+</ul>
+</li>
+<li><p>Save Public key on the Linux server</p>
+<ul>
+<li><p>cut/paste your public ssh key (Please see the figure in the web
+page mentioned in the beginning) on ONE LINE (That is very
+important!!!) in a file,</p></li>
+<li><p>Do not add the rsa-key-20090614 at the end. Make sure, there is
+ssh-rsa at the beginning.</p></li>
+<li><p>It should be something like:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-rsa<span class="w"> </span>...<span class="w"> </span>3434343234232m/PmcZJc5uVleXfp6yJIWG5xJE9TpY1VC4n/NQlWs1PTcplk5+xhUJPHjeMkKcVMIhhUGg0l+Tt08
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>You need to append that line to <code class="docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code> on the
+Linux server</p></li>
+</ul>
+</li>
+<li><p>Store Private key in PuTTY SSH authentication agent</p>
+<ul class="simple">
+<li><p>Start the PuTTY SSH authentication agent PAGEANT.EXE (double click
+the icon).</p></li>
+<li><p>After it started, right-click its syspanel icon (in the
+right-bottom corner of your screen)and select “add key”. Select
+your private key file, say C:ppp.ppk, and type in your passphrase.
+The Pageant works as a passphrase keeper.</p></li>
+</ul>
+</li>
+<li><p>Use PuTTY to connect to the Linux server</p>
+<ul class="simple">
+<li><p>Under “Host name or (IP address)” enter hostname</p></li>
+<li><p>Under “Port”, enter port number</p></li>
+<li><p>The port number and hostname have been sent to your Loyola
+mailbox.</p></li>
+<li><p>Then, click [Open]</p></li>
+</ul>
+</li>
+</ol>
+<p>This is adapted from
+<a class="reference external" href="http://www.howtoforge.com/how-to-configure-ssh-keys-authentication-with-putty-and-linux-server-in-5-quick-steps">http://www.howtoforge.com/how-to-configure-ssh-keys-authentication-with-putty-and-linux-server-in-5-quick-steps</a></p>
+</section>
+<section id="ssh-communications">
+<h2>SSH Communications<a class="headerlink" href="#ssh-communications" title="Link to this heading"></a></h2>
+<p>Five Quick Steps to Configure SSH Keys Authentication With ssh Client
+from SSH Communications</p>
+<ol class="arabic">
+<li><p>Download ssh client software from:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>http://www.colorado.edu/its/docs/authenticate/printouts/win_ssh.html
+-<span class="w"> </span>http://www.sfsu.edu/~helpdesk/ssh/ssh329/
+</pre></div>
+</div>
+</li>
+<li><p>Generate a private and public key pair</p>
+<ul class="simple">
+<li><p>In the toolbar of ssh client, there are several icons. First from
+left is “Save”, and second is “Print”. The third from RIGHT, is
+“Settings”.</p></li>
+<li><p>Click “Setting” icon.</p></li>
+<li><p>In the “Setting” windows, go to “Global Settings”-&gt;”User
+Authentication”-&gt;”Keys”.</p></li>
+<li><p>Click “Keys”.</p></li>
+<li><p>Under “Key pair management”, click “Generate New”, then click
+Next.</p></li>
+<li><p>In the “Key Generation” window that appears:</p></li>
+<li><p>From the drop-down list next to “Key Type:”, select RSA</p></li>
+<li><p>From the the drop-down list next to “Key Length:”, select 1024.</p></li>
+<li><p>Click Next. The key generation process will start. When it’s
+complete, click Next again.</p></li>
+</ul>
+</li>
+<li><p>Store private key</p>
+<ul class="simple">
+<li><p>In the “File Name:” field, enter a name for the file where SSH
+Secure Shell will store your private key. Your public key will be
+stored in a file with the same name, plus a .pub extension.</p></li>
+<li><p>In the boxes next to “Passphrase:”, enter a passphrase for your
+private key, or leave the boxes empty if you do not want to
+protect your private key with a passphrase.</p></li>
+<li><p>This passphrase is not sent to the remote host, and it is only
+used to protect your private key. Otherwise, anyone who has access
+to your private key can authenticate to your account
+automatically.</p></li>
+<li><p>click Next, and then Finish.</p></li>
+</ul>
+</li>
+<li><p>Save Public key on the Linux server</p>
+<ul>
+<li><p>Under “Public Key management”, click “View”. Notepad or another
+editor will open xxx.pub You may save it in a file. Then, you need
+to append that file to ~/.ssh/authorized_keys on the Linux server.</p></li>
+<li><p>You may need to add ssh-rsa at the beginning of the key and edit
+it to make the key on one line, ex.:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>----<span class="w"> </span>BEGIN<span class="w"> </span>SSH2<span class="w"> </span>PUBLIC<span class="w"> </span>KEY<span class="w"> </span>----
+...
+Comment:<span class="w"> </span><span class="s2">&quot;[2048-bit rsa, cs@luc-cs-101, Thu Jul 29 2010 01:16:06]&quot;</span><span class="w"> </span>ssh-rsa<span class="w"> </span>AAAAB3NzaC1yc25A4vaINWk8i8vRAYOWoPacCP8KU3NUqWExy2a6lUq75F3pYmg46cjZ8gj9aEVcGgAwGgo4XP4TBB<span class="w"> </span>----<span class="w"> </span>END<span class="w"> </span>SSH2<span class="w"> </span>PUBLIC<span class="w"> </span>KEY<span class="w"> </span>----
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>Use ssh client to connect to the Linux server</p>
+<ul class="simple">
+<li><p>“Host Name:” to hostname</p></li>
+<li><p>“Port Number:” to port number</p></li>
+<li><p>“Authentication Method:” to Public Key.</p></li>
+<li><p>The port number and hostname have been sent to your Loyola mailbox
+with your username and password.</p></li>
+<li><p>You will be prompted for the passphrase for your private key (if
+you supplied one). If you did not supply a passphrasefor your
+private key, you will not receive a request for a passphrase when
+connecting to the remote host.</p></li>
+</ul>
+</li>
+<li><p>See <a class="reference external" href="http://kb.iu.edu/data/amzx.html">http://kb.iu.edu/data/amzx.html</a> for additional details. We have
+adapted our instructions from this page.</p></li>
+</ol>
+</section>
+<section id="cygwin-ssh-installation">
+<h2>Cygwin SSH Installation<a class="headerlink" href="#cygwin-ssh-installation" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Go to <a class="reference external" href="http://www.cygwin.com/setup.exe">http://www.cygwin.com/setup.exe</a></p>
+<ul class="simple">
+<li><p>This will download a GUI installer called setup.exe which can be
+run to download a complete cygwin installation via the internet.</p></li>
+</ul>
+</li>
+<li><p>Download Source</p>
+<ul class="simple">
+<li><p>Please choose [Install from Internet] option, setup.exe creates a
+local directory to store the packages before actually installing
+the contents. The Root Directory for Cygwin (default C:cygwin)
+will become / within your Cygwin installation.</p></li>
+</ul>
+</li>
+<li><p>Choosing Packages</p>
+<ul class="simple">
+<li><p>Activate the window [Select Packages]</p></li>
+<li><p>enter ssh in [search] box</p></li>
+<li><p>click [+] Net …</p></li>
+<li><p>click []Skip openssh …n</p></li>
+<li><p>then click [Next] .…</p></li>
+</ul>
+</li>
+<li><p>After installing Cygwin/openssh, you can configure OpenSSH for Public
+Key Authentication</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="remote_access.html" class="btn btn-neutral float-left" title="Remote Access" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../its_services/printing.html" class="btn btn-neutral float-right" title="Printing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Nicholas M. Synovic.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
