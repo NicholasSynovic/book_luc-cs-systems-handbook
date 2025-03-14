@@ -37,6 +37,13 @@ subsections.
    :align: left
    :file: ./datasheets/system_description_cluster.csv
 
+.. note::
+
+   The 30 TB shared storage is an NFS mount that contains the home
+   directory of all users. Each node has its own local storage which
+   contains the system application (e.g., OS, kernel, etc) specific to
+   that node.
+
 Login Node Hardware
 ===================
 

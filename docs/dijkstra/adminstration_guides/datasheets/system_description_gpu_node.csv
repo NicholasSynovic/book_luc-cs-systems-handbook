@@ -6,7 +6,7 @@ CPU Datasheet,https://www.intel.com/content/www/us/en/products/sku/232384/intel-
 Number Of GPUs,4
 GPU Make and Model,NVIDIA L40S
 GPU Datasheet,https://www.nvidia.com/en-us/data-center/l40s/
-Total Storage,33.2 TB
+Total Local Storage,13.44 TB
 Number of Storage Devices,4 (1 x 1.92 TB | 3 x 3.84 TB in RAID 0)
 Storage Device Datasheets,https://download.semiconductor.samsung.com/resources/data-sheet/Samsung_SSD_PM9A3_Data_Sheet_Rev1.0.pdf | https://semiconductor.samsung.com/ssd/datacenter-ssd/pm9a3/mzql23t8hcls-00a07/
 Total Memory,1024 GB
