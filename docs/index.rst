@@ -22,7 +22,15 @@ students at Loyola University Chicago's Computer Science Department.
    :maxdepth: 2
    :caption: Dijkstra
 
-   dijkstra/system_administration.rst
+   dijkstra/overview.rst
+   dijkstra/system_hardware_descriptions.rst
+   dijkstra/software_bill_of_materials.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Prim
+
+   prim/system_administration.rst
 
 .. toctree::
    :maxdepth: 2
