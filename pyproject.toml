@@ -1,6 +1,6 @@
 [project]
 name = "src"
-version = "0.1.14"
+version = "0.2"
 description = "Hello World"
 authors = [{ name = "Nicholas M. Synovic", email = "nicholas.synovic@gmail.com" }]
 requires-python = ">=3.13,<4.0"
