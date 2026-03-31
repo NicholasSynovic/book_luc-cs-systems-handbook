@@ -1,158 +1,177 @@
-Guidance for coding agents working in `book_luc-cs-systems-handbook`.
+# AGENTS.md
 
-## 1) Purpose and Stack
+Practical guide for agentic coding assistants operating in this repository.
 
-- This repository is a docs-first Sphinx handbook for CS systems/services.
-- Primary authored content is in `docs/` as reStructuredText (`.rst`).
-- Toolchain: Python, Poetry, Make, pre-commit, and GitHub Actions.
-- Deployment uses `ghp-import` to publish `html/` to `gh-pages`.
-- `pyproject.toml` has `tool.poetry.package-mode = false` (not a library package).
+## Repository at a Glance
+- Stack: Python + Sphinx documentation project.
+- Main content root: `src/`.
+- Sphinx configuration: `src/conf.py`.
+- Build artifact directory: `html/`.
+- Dependency manager: `uv`.
+- Python constraint: `>=3.13,<4.0`.
 
-## 2) Source of Truth Files
+## Key Files
+- `pyproject.toml`: project metadata and dependency constraints.
+- `uv.lock`: locked dependency versions.
+- `Makefile`: canonical setup/build/deploy commands.
+- `.pre-commit-config.yaml`: lint, format, security, and `.rst` hooks.
+- `.isort.cfg`: import sorting policy (`profile = black`, `line_length = 79`).
+- `.editorconfig`: indentation, encoding, newline, whitespace conventions.
+- `.github/workflows/build.yml`: CI build + deploy workflow.
+- `src/index.rst`: root toctree and documentation navigation.
 
-- Build and deploy commands: `Makefile`.
-- Python/runtime constraints: `pyproject.toml` and `poetry.lock`.
-- Bootstrap deps: `requirements.txt`.
-- Formatting/lint gates: `.pre-commit-config.yaml`.
-- Import style details: `.isort.cfg`.
-- Markdown lint overrides: `.markdownlint.json`.
-- CI workflows: `.github/workflows/build.yml`, `.github/workflows/pre-commit.yml`.
-- Sphinx runtime config: `docs/conf.py`.
+## Cursor and Copilot Rules
+- Checked `.cursor/rules/`: not present.
+- Checked `.cursorrules`: not present.
+- Checked `.github/copilot-instructions.md`: not present.
+- No repository-local Cursor or Copilot instruction files currently exist.
 
-## 3) Environment Setup
+## Setup Commands
+- Preferred bootstrap:
 
-- Required Python range: `>=3.13,<4.0`.
-- Recommended local setup:
-  - `python3.13 -m venv env`
-  - `source env/bin/activate`
-  - `pip install -r requirements.txt`
-  - `poetry install`
-- Canonical bootstrap command: `make create-dev`.
+```bash
+make create-dev
+```
 
-## 4) Build, Lint, and Test Commands
+- `make create-dev` performs:
+- `pre-commit install`
+- `pre-commit autoupdate`
+- `uv sync`
+- `uv build`
 
-### Build
+## Build Commands
+- Canonical documentation build:
 
-- `make build-html`
-  - syncs Poetry version from latest git tag,
-  - writes short version to `src/_version`,
-  - runs `sphinx-build --write-all docs html`.
-- `make deploy-gh` publishes built docs to `gh-pages`.
+```bash
+make build-html
+```
 
-### Lint / Format
+- Equivalent direct build:
 
-- Run all checks: `pre-commit run --all-files`.
-- Run checks on changed files: `pre-commit run`.
-- Individual hooks:
-  - `pre-commit run black --all-files`
-  - `pre-commit run isort --all-files`
-  - `pre-commit run flake8 --all-files`
-  - `pre-commit run bandit --all-files`
-  - `pre-commit run rstfmt --all-files`
-  - `pre-commit run mdformat --all-files`
+```bash
+sphinx-build --write-all src html
+```
 
-### Test
+- Publish docs (release flow):
 
-- There is currently no first-class test suite in this repository.
-- No `pytest.ini`, `tox.ini`, or `tests/` directory is present.
-- Effective quality gates are:
-  - `pre-commit run --all-files`
-  - `make build-html`
+```bash
+make deploy-gh
+```
 
-### Running a Single Test (Important)
+## Lint / Format / Security Commands
+- Run all configured checks:
 
-- Current status: not applicable because no tests are defined.
-- If pytest tests are introduced, use:
-  - file: `poetry run pytest path/to/test_file.py`
-  - single test: `poetry run pytest path/to/test_file.py::test_name`
-  - unittest style: `poetry run pytest path/to/test_file.py::TestClass::test_method`
+```bash
+pre-commit run --all-files
+```
 
-## 5) Code Style Guidelines
+- Run one hook on all files:
+
+```bash
+pre-commit run black --all-files
+pre-commit run isort --all-files
+pre-commit run flake8 --all-files
+pre-commit run bandit --all-files
+pre-commit run rstfmt --all-files
+```
+
+- Run one hook on selected files:
+
+```bash
+pre-commit run black --files src/conf.py
+pre-commit run rstfmt --files src/index.rst
+```
+
+## Test Commands (Current State)
+- No test framework is configured in this repository right now.
+- No `pytest.ini`, `tox.ini`, `noxfile.py`, or `tests/` directory exists.
+- Treat lint + docs build as the validation pipeline.
+
+Recommended validation sequence:
+
+```bash
+pre-commit run --all-files
+make build-html
+```
+
+## Running a Single Test
+- True single-test execution is not available yet (no test runner configured).
+- Closest equivalent: run a single hook against a single file:
+
+```bash
+pre-commit run rstfmt --files src/how_to/command_line_basics.rst
+```
+
+- If pytest is added later, use patterns like:
+
+```bash
+pytest tests/test_file.py::test_name
+pytest -k "keyword"
+```
+
+## Code Style Guidelines
+
+### General
+- Keep changes scoped, minimal, and task-focused.
+- Avoid broad refactors unless explicitly requested.
+- Preserve current directory layout and document organization.
 
 ### Python Formatting and Linting
-
-- Use `black` for formatting Python.
-- Use `isort` for imports with `profile = black`.
-- `isort` is configured with `line_length = 79`.
-- Use `flake8` for linting and `bandit` for security checks.
+- Format with Black (via pre-commit).
+- Sort imports with isort using the Black profile.
+- Lint Python with flake8.
+- Run security checks with bandit.
+- Follow 4-space indentation for Python files.
+- Prefer the existing 79-character line-length convention.
 
 ### Imports
-
-- Import grouping order: stdlib, third-party, local.
-- Separate groups with one blank line.
-- Let automated tools own final ordering/wrapping.
+- Order imports as stdlib, third-party, then local.
+- Let isort handle final ordering.
+- Avoid wildcard imports.
 
 ### Types
-
-- Add type hints for new Python where practical.
-- Prefer built-in generics (`list[str]`, `dict[str, int]`).
-- Keep type usage consistent within each file.
+- No strict type checker is currently configured.
+- Add type hints to new public functions when useful.
+- Prefer built-in generics (`list[str]`, `dict[str, str]`).
 
 ### Naming
-
-- Python modules: `snake_case.py`.
-- Functions/variables: `snake_case`.
-- Classes: `PascalCase`.
+- Python functions/variables/modules: `snake_case`.
 - Constants: `UPPER_SNAKE_CASE`.
-- Make targets: short, verb-forward (`build-html`, `create-dev`).
+- `.rst` files: lowercase names with underscores.
+- Keep section title capitalization consistent inside each document.
 
 ### Error Handling
+- Fail fast on unrecoverable configuration or build issues.
+- Prefer specific exceptions over broad `except Exception`.
+- Do not silently swallow exceptions.
+- Include actionable context in error messages.
 
-- Fail fast on unrecoverable paths.
-- Raise specific exceptions instead of broad `Exception`.
-- Add context when re-raising.
-- Avoid silent `except` blocks.
+### ReStructuredText
+- Format `.rst` files with `rstfmt`.
+- Use 3-space indentation for `.rst` content blocks.
+- Keep heading adornments consistent within a file.
+- Keep toctree references relative and valid.
 
-### Shell Scripts
+### Whitespace and Encoding
+- Encoding: UTF-8.
+- Line endings: LF.
+- Trim trailing whitespace.
+- Ensure files end with a newline.
 
-- Existing scripts in `scripts/*.bash` are lightweight operational helpers.
-- For new scripts, prefer:
-  - `set -euo pipefail`
-  - quoted variable expansions
-  - straightforward control flow over dense one-liners
+## CI Behavior
+- Workflow file: `.github/workflows/build.yml`.
+- Triggered by tag pushes and manual dispatch.
+- CI runs `make create-dev`, `make build-html`, then `make deploy-gh`.
 
-### Docs Authoring
+## Agent Working Agreement
+- Before finishing substantial changes, run:
 
-- `.rst` is the primary doc format.
-- Keep heading levels and toctrees aligned with `docs/index.rst`.
-- Run `rstfmt` before finalizing `.rst` edits.
-- Markdown (e.g., ADRs) is formatted with `mdformat`.
-- `.markdownlint.json` disables MD007, MD013, and MD030.
+```bash
+pre-commit run --all-files
+make build-html
+```
 
-## 6) CI Expectations
-
-- Tag pushes run the build/deploy workflow.
-- Pre-commit automation exists in GitHub Actions.
-- Keep local changes aligned with CI by running:
-  - `pre-commit run --all-files`
-  - `make build-html`
-
-## 7) Agent Workflow Expectations
-
-- Inspect nearby docs/config before editing.
-- Keep changes focused and avoid unrelated churn.
-- Preserve `docs/` structure and existing conventions.
-- If build logic changes, verify with `make build-html` when possible.
-- If new tooling/conventions are added, update this file in the same change.
-
-## 8) Cursor and Copilot Rule Files
-
-- Checked for `.cursorrules`: not present.
-- Checked for `.cursor/rules/`: not present.
-- Checked for `.github/copilot-instructions.md`: not present.
-- This `AGENTS.md` is therefore the in-repo instruction source for coding agents.
-
-## 9) Missing Information Policy
-
-- If a requested command is missing, use existing Make/pre-commit flows.
-- If asked for tests, state there is no test suite yet and use build/lint gates.
-- When introducing conventions, encode them in config and document them here.
-
-## 10) Quick Commands
-
-- `make create-dev` - create venv, install deps, configure hooks.
-- `make build-html` - build Sphinx HTML output.
-- `make deploy-gh` - publish `html/` to `gh-pages`.
-- `pre-commit run` - run checks on changed files.
-- `pre-commit run --all-files` - run checks on all files.
-- Future single-test pattern: `poetry run pytest path/to/test_file.py::test_name`.
+- Include hook-generated changes in the final patch.
+- Do not add new tooling (pytest/ruff/mypy/etc.) unless requested.
+- Do not modify deployment behavior unless explicitly requested.
+- Avoid committing generated artifacts (`html/`, `dist/`) unless required.
